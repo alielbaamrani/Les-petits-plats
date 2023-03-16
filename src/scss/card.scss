@@ -1,0 +1,33 @@
+.card {
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    height: 48%;
+
+
+    .cardBody__Title_Time {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .cardInfo {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
+
+        ul {
+            width: 48%;
+        }
+
+        .cardDesc {
+            font-size: 12px;
+            width: 48%;
+            display: -webkit-box;
+            -webkit-line-clamp: 7;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    }
+}
