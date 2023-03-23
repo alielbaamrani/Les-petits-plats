@@ -1,33 +1,42 @@
-.card {
-}
-
 .card-body {
+  display: flex;
+  flex-direction: column;
+  height: 190px;
+
+  .cardBody__Title_Time {
     display: flex;
-    flex-direction: column;
-    height: 48%;
+    justify-content: space-between;
+  }
 
+  .cardInfo {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
 
-    .cardBody__Title_Time {
-        display: flex;
-        justify-content: space-between;
+    ul {
+      padding: 1px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      width: 50%;
+      max-height: 130px;
+      li {
+        list-style: none;
+        font-size: 11px;
+      }
+
+      .bold-ingredient {
+        font-weight: 600;
+      }
     }
 
-    .cardInfo {
-        display: flex;
-        width: 100%;
-        overflow: hidden;
-
-        ul {
-            width: 48%;
-        }
-
-        .cardDesc {
-            font-size: 12px;
-            width: 48%;
-            display: -webkit-box;
-            -webkit-line-clamp: 7;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
+    .cardDesc {
+      padding: 0;
+      font-size: 11px;
+      width: 50%;
+      display: -webkit-box;
+      -webkit-line-clamp: 7;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
+  }
 }

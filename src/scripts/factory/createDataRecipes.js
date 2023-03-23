@@ -2,11 +2,45 @@
 module.exports = {
 
   create (data) {
-    const { id, name, servings, ingredients, time, description, appliance, ustencils } = data
+    const { id, name, servings, ingredients, time, description, appliance, ustensils } = data
+    const getIngredients = ingredients => {
+      const cardIngredients = document.createElement('ul')
+      ingredients.forEach(item => {
+        // collapse-ingredients
+        const listIngredients = document.querySelector('.list-group-ingredient')
+        const LiIngredient = document.createElement('li')
+        LiIngredient.textContent = `${item.ingredient}`
+        //  collapse-appareil
+        const listAppareil = document.querySelector('.list-group-appareil')
+        const LiAppareil = document.createElement('li')
+        LiAppareil.textContent = `${appliance}`
+        // colapse-ustensil
+        const listUstensils = document.querySelector('.list-group-ustencil')
+        const liUstensils = document.createElement('li')
+        liUstensils.textContent = `${ustensils}`
+        const cardIngredient = document.createElement('li')
+        const boldName = document.createElement('span')
+        boldName.setAttribute('class', 'bold-ingredient')
+        boldName.textContent = `${item.ingredient}: ${item.quantity || item.quantite || ''} ${item.unit || ''}`
 
-    // creation des profils des photographes avec leurs données
+        listUstensils.append(liUstensils)
+        listIngredients.appendChild(LiIngredient)
+        listAppareil.appendChild(LiAppareil)
+        cardIngredient.appendChild(boldName)
+        cardIngredients.appendChild(cardIngredient)
+      })
+      return cardIngredients
+    }
 
     const getRecipeCardDOM = () => {
+      const col = document.createElement('div')
+      col.classList.add('col')
+      col.classList.add('col-card')
+
+      const card = document.createElement('div')
+      card.classList.add('card')
+      const bgGrey = document.createElement('div')
+      bgGrey.classList.add('background-grey')
       const cardBody = document.createElement('div')
       cardBody.classList.add('card-body')
       const cardBodyTitleTime = document.createElement('div')
@@ -22,24 +56,22 @@ module.exports = {
       h5.textContent = `${name}`
       const cardInfo = document.createElement('div')
       cardInfo.classList.add('cardInfo')
-      const cardIngredients = document.createElement('ul')
-      const cardIngredient = document.createElement('li')
-      cardIngredient.textContent = `${ingredients}`
       const cardDesc = document.createElement('p')
       cardDesc.classList.add('cardDesc')
       cardDesc.textContent = `${description}`
+      col.appendChild(card)
+      card.appendChild(bgGrey)
+      card.appendChild(cardBody)
       cardBody.appendChild(cardBodyTitleTime)
       cardBodyTitleTime.appendChild(h5)
       cardBodyTitleTime.appendChild(pTime)
       pTime.appendChild(clock)
       cardBody.appendChild(cardInfo)
-      cardIngredients.appendChild(cardIngredient)
-      cardInfo.appendChild(cardIngredients)
+      cardInfo.appendChild(getIngredients(ingredients))
       cardInfo.appendChild(cardDesc)
-
-      return (cardBody)
+      return (col)
     }
 
-    return { id, name, servings, ingredients, time, description, appliance, ustencils, getRecipeCardDOM }
+    return { id, name, servings, ingredients, time, description, appliance, ustensils, getRecipeCardDOM }
   }
 }

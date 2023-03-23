@@ -10,7 +10,10 @@
       href="https://fonts.googleapis.com/css?family=Lato&display=swap"
       rel="stylesheet"
     />
-    <script src="https://kit.fontawesome.com/17560ba329.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/17560ba329.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Les petits plats</title>
   </head>
   <body>
@@ -22,6 +25,7 @@
       <nav class="navbar container">
         <form class="d-flex form-search-bar">
           <input
+            id="input-search-bar"
             class="form-control input-search-bar"
             type="search"
             placeholder="Rechercher une recette"
@@ -53,20 +57,14 @@
               </h2>
               <div
                 id="collapse-ingredients"
-                class="accordion-collapse collapse"
+                class="accordion-collapse collapse list-ingredient"
                 aria-labelledby="heading-ingredients"
                 data-bs-parent="#ingredients"
               >
                 <div class="accordion-body">
-                  <ul class="list-group">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                  </ul>
+                  <ul class="list-group list-group-ingredient"></ul>
                 </div>
-              </div>
+              </div> 
             </div>
           </div>
           <div class="accordion col" id="appareils">
@@ -90,13 +88,7 @@
                 data-bs-parent="#appareils"
               >
                 <div class="accordion-body">
-                  <ul class="list-group">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                  </ul>
+                  <ul class="list-group list-group-appareil"></ul>
                 </div>
               </div>
             </div>
@@ -122,13 +114,7 @@
                 data-bs-parent="#ustensibles"
               >
                 <div class="accordion-body">
-                  <ul class="list-group">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                  </ul>
+                  <ul class="list-group list-group-ustencil"></ul>
                 </div>
               </div>
             </div>
@@ -136,223 +122,7 @@
         </div>
       </section>
       <section class="container" id="section-recettes">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-              
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card">
-              <div class="background-grey"></div>
-            </div>
-          </div>
-        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="recipesRow"></div>
       </section>
     </main>
   </body>
