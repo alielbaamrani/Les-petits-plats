@@ -7,13 +7,13 @@ module.exports = {
       const cardIngredients = document.createElement('ul')
       ingredients.forEach(item => {
         // collapse-ingredients
-        const listIngredients = document.querySelector('.list-group-ingredient')
-        const LiIngredient = document.createElement('li')
-        LiIngredient.textContent = `${item.ingredient}`
+        // const listIngredients = document.querySelector('.list-group-ingredient')
+        // const LiIngredient = document.createElement('li')
+        // console.log(ingredient)
         //  collapse-appareil
         const listAppareil = document.querySelector('.list-group-appareil')
         const LiAppareil = document.createElement('li')
-        LiAppareil.textContent = `${appliance}`
+        LiAppareil.textContent = [...new Set([appliance])]
         // colapse-ustensil
         const listUstensils = document.querySelector('.list-group-ustencil')
         const liUstensils = document.createElement('li')
@@ -24,7 +24,7 @@ module.exports = {
         boldName.textContent = `${item.ingredient}: ${item.quantity || item.quantite || ''} ${item.unit || ''}`
 
         listUstensils.append(liUstensils)
-        listIngredients.appendChild(LiIngredient)
+        //  listIngredients.appendChild(LiIngredient)
         listAppareil.appendChild(LiAppareil)
         cardIngredient.appendChild(boldName)
         cardIngredients.appendChild(cardIngredient)
