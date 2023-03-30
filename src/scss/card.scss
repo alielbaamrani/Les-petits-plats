@@ -1,7 +1,15 @@
+#section-recettes {
+  .background-grey {
+    background: #c7bebe;
+    height: 160px;
+    width: 100%;
+  }
+}
+
 .card-body {
   display: flex;
   flex-direction: column;
-  height: 190px;
+  height: 230px;
 
   .cardBody__Title_Time {
     display: flex;
@@ -15,10 +23,9 @@
 
     ul {
       padding: 1px;
-      overflow-y: auto;
-      scrollbar-width: thin;
       width: 50%;
-      max-height: 130px;
+      max-height: 100%;
+      margin: 0;
       li {
         list-style: none;
         font-size: 11px;

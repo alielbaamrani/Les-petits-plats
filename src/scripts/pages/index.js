@@ -11,6 +11,7 @@ const row = (document.querySelector('#recipesRow'))
 
 const displayData = async recipes => {
   // supprimer toute les elements dans row
+
   while (row.firstChild) {
     row.removeChild(row.firstChild)
   } // Creation des recipes Card
@@ -33,9 +34,14 @@ searchBar.addEventListener('input', (e) => {
 async function filterElement (result) {
   const recipes = await getRecipes()
   const filterArray = recipes.filter(el => el.name.toLowerCase().includes(result) || el.description.toLowerCase().includes(result) || el.appliance.toLowerCase().includes(result))
-  if (row.innerHTML === '') {
-    console.log('emplty')
-    displayData(recipes)
+  // displayData(recipes)
+  if (filterArray.length === 0) {
+    while (row.firstChild) {
+      row.removeChild(row.firstChild)
+    }
+    const recipesNone = document.createElement('p')
+    recipesNone.textContent = 'aucune recette trouvé'
+    row.appendChild(recipesNone)
   } else {
     displayData(filterArray)
   }

@@ -1,31 +1,20 @@
+const { getRecipes } = require('../components/api')
 
 module.exports = {
 
   create (data) {
     const { id, name, servings, ingredients, time, description, appliance, ustensils } = data
+
+
+
     const getIngredients = ingredients => {
       const cardIngredients = document.createElement('ul')
       ingredients.forEach(item => {
-        // collapse-ingredients
-        // const listIngredients = document.querySelector('.list-group-ingredient')
-        // const LiIngredient = document.createElement('li')
-        // console.log(ingredient)
-        //  collapse-appareil
-        const listAppareil = document.querySelector('.list-group-appareil')
-        const LiAppareil = document.createElement('li')
-        LiAppareil.textContent = [...new Set([appliance])]
-        // colapse-ustensil
-        const listUstensils = document.querySelector('.list-group-ustencil')
-        const liUstensils = document.createElement('li')
-        liUstensils.textContent = `${ustensils}`
         const cardIngredient = document.createElement('li')
         const boldName = document.createElement('span')
         boldName.setAttribute('class', 'bold-ingredient')
         boldName.textContent = `${item.ingredient}: ${item.quantity || item.quantite || ''} ${item.unit || ''}`
 
-        listUstensils.append(liUstensils)
-        //  listIngredients.appendChild(LiIngredient)
-        listAppareil.appendChild(LiAppareil)
         cardIngredient.appendChild(boldName)
         cardIngredients.appendChild(cardIngredient)
       })
