@@ -1,11 +1,8 @@
-const { getRecipes } = require('../components/api')
 
 module.exports = {
 
   create (data) {
     const { id, name, servings, ingredients, time, description, appliance, ustensils } = data
-
-
 
     const getIngredients = ingredients => {
       const cardIngredients = document.createElement('ul')

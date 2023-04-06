@@ -5,6 +5,5 @@ import { Collapse } from 'bootstrap'
 /* Inject css */
 require('./scss/app.scss')
 require('./scripts/utils/domlinker')
-require('./scripts/components/api')
 require('./scripts/components/dropdown')
 require('./scripts/pages/index')

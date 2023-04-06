@@ -72,5 +72,47 @@
     }
   }
 }
+.accordion-body-ingredient {
+  background: #3282f7;
+}
 
+.input-search-bar-ingredient {
+  background: #3282f7;
+}
+
+.accordion-body-appliance {
+  background: #68d9a4;
+}
+
+.input-search-bar-appliance {
+  background: #68d9a4;
+}
+
+.accordion-body-ustencil {
+  background: #ed6454;
+}
+
+.input-search-bar-ustencil {
+  background: #ed6454;
+}
+
+
+.accordion-body {
+  position: absolute;
+  color: white;
+  width: 45vw;
+  max-height: 40vh;
+  overflow-y: scroll;
+  border-radius: 0 0 5px 5px;
+  z-index: 99;
+
+  ul {
+    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+  }
+  li {
+    list-style: none;
+  }
+}
 

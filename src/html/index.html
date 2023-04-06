@@ -36,6 +36,7 @@
       </nav>
       <section class="container" id="section-filtres">
         <div class="d-flex badges">
+          <ul class="badgeList"></ul>
           <button type="button" class="btn btn-primary">
             Coco <i class="bi-x-circle"></i>
           </button>
@@ -61,10 +62,20 @@
                 aria-labelledby="heading-ingredients"
                 data-bs-parent="#ingredients"
               >
-                <div class="accordion-body">
-                  <ul class="list-group list-group-ingredient"></ul>
+                <div class="accordion-body accordion-body-ingredient">
+                  <input
+                    id="input-search-bar-ingredient"
+                    class="form-control input-search-bar input-search-bar-ingredient"
+                    type="search"
+                    placeholder="Rechercher un ingredients"
+                    aria-label="Rechercher une ingredients"
+                  />
+                  <ul
+                    id="list-group-ingredient"
+                    class="list-group list-group-ingredient"
+                  ></ul>
                 </div>
-              </div> 
+              </div>
             </div>
           </div>
           <div class="accordion col" id="appareils">
@@ -87,8 +98,15 @@
                 aria-labelledby="headingTwo"
                 data-bs-parent="#appareils"
               >
-                <div class="accordion-body">
-                  <ul class="list-group list-group-appareil"></ul>
+                <div class="accordion-body accordion-body-appliance">
+                  <input
+                    id="input-search-bar-appliance"
+                    class="form-control input-search-bar input-search-bar-appliance"
+                    type="search"
+                    placeholder="Rechercher un ingredients"
+                    aria-label="Rechercher une ingredients"
+                  />
+                  <ul class="list-group list-group-appliance"></ul>
                 </div>
               </div>
             </div>
@@ -113,7 +131,14 @@
                 aria-labelledby="heading-ustensibles"
                 data-bs-parent="#ustensibles"
               >
-                <div class="accordion-body">
+                <div class="accordion-body accordion-body-ustencil">
+                  <input
+                    id="input-search-bar-ustencil"
+                    class="form-control input-search-bar input-search-bar-ustencil"
+                    type="search"
+                    placeholder="Rechercher un ustencils"
+                    aria-label="Rechercher une ustencils"
+                  />
                   <ul class="list-group list-group-ustencil"></ul>
                 </div>
               </div>
