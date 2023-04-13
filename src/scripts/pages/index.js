@@ -1,17 +1,9 @@
+const state = require('../components/state')
 const { getRecipes, getIngredients, getUstensils, getAppliance } = require('../components/api')
 const factoryRecipe = require('../factory/createDataRecipes')
 const searchBar = document.getElementById('input-search-bar')
-const searchInputIngredient = document.getElementById('input-search-bar-ingredient')
-const searchInputAppliance = document.getElementById('input-search-bar-appliance')
-const searchInputUstencil = document.getElementById('input-search-bar-ustencil')
-
 const row = (document.querySelector('#recipesRow'))
 
-/**
- * Remove all first child from an element quoted in parameter
- *
- * @param {HTMLElement} el - target element html with all first child to remove
- */
 const displayData = async recipes => {
   // supprimer toute les elements dans row
   while (row.firstChild) {
@@ -46,7 +38,8 @@ const filterRecipe = async value => {
   const dropdownUstencils = document.querySelector('.list-group-ustencil')
   const dropdownAppliance = document.querySelector('.list-group-appliance')
 
- // list du dropdown ingredient
+  // ingredient
+
   while (dropdownIngredients.firstChild) {
     dropdownIngredients.removeChild(dropdownIngredients.firstChild)
   }
@@ -54,120 +47,106 @@ const filterRecipe = async value => {
     const listIngredients = document.createElement('li')
     listIngredients.classList.add('itemIngredient')
     listIngredients.textContent = ingredient
+    listIngredients.addEventListener('click', () => {
+      state.tags.ingredients.push(ingredient)
+      state.tags.ingredients = [...new Set(state.tags.ingredients)]
+      const badgeListIngredients = document.querySelector('.badgeListIngredients')
+      console.log(state.tags)
+
+      const tableau = state.tags.ingredients
+
+      while (badgeListIngredients.firstChild) {
+        badgeListIngredients.removeChild(badgeListIngredients.firstChild)
+      }
+      for (let i = 0; i < tableau.length; i++) {
+        const button = document.createElement('button')
+        button.classList.add('btn')
+        button.classList.add('btn-ingredient')
+        const close = document.createElement('i')
+        close.classList.add('bi-x-circle')
+        button.appendChild(document.createTextNode(tableau[i]))
+        button.appendChild(close)
+        badgeListIngredients.appendChild(button)
+      }
+    })
+
     dropdownIngredients.appendChild(listIngredients)
   })
-  // list du dropdown appliance
+
+  //  appliance
+
   while (dropdownAppliance.firstChild) {
     dropdownAppliance.removeChild(dropdownAppliance.firstChild)
   }
   appliance.forEach(appliance => {
     const listAppliance = document.createElement('li')
     listAppliance.textContent = appliance
+    listAppliance.addEventListener('click', () => {
+      state.tags.appliances.push(appliance)
+      state.tags.appliances = [...new Set(state.tags.appliances)]
+      const badgeListAppliances = document.querySelector('.badgeListAppliances')
+      console.log(state.tags)
+
+      const tableau = state.tags.appliances
+
+      while (badgeListAppliances.firstChild) {
+        badgeListAppliances.removeChild(badgeListAppliances.firstChild)
+      }
+      // Parcourez chaque élément du tableau et créez un élément <li> pour chaque élément
+      for (let i = 0; i < tableau.length; i++) {
+        // Créez un nouvel élément <li>
+        const button = document.createElement('button')
+        button.classList.add('btn')
+        button.classList.add('btn-appliance')
+        const close = document.createElement('i')
+        close.classList.add('bi-x-circle')
+
+        // Ajoutez le texte de l'élément du tableau à l'élément <li>
+        button.appendChild(document.createTextNode(tableau[i]))
+        button.appendChild(close)
+        badgeListAppliances.appendChild(button)
+      }
+    })
     dropdownAppliance.appendChild(listAppliance)
   })
-  // list du dropdown ustencils
+
+  // ustencils
+
   while (dropdownUstencils.firstChild) {
     dropdownUstencils.removeChild(dropdownUstencils.firstChild)
   }
   ustencils.forEach(ustencils => {
     const listUstencils = document.createElement('li')
     listUstencils.textContent = ustencils
+    listUstencils.addEventListener('click', () => {
+      state.tags.ustensils.push(ustencils)
+      state.tags.ustensils = [...new Set(state.tags.ustensils)]
+      console.log(state.tags)
+      const badgeListUstencils = document.querySelector('.badgeListUstencils')
+
+      const tableau = state.tags.ustensils
+
+      while (badgeListUstencils.firstChild) {
+        badgeListUstencils.removeChild(badgeListUstencils.firstChild)
+      }
+      for (let i = 0; i < tableau.length; i++) {
+        const button = document.createElement('button')
+        button.classList.add('btn')
+        button.classList.add('btn-ustencils')
+        const close = document.createElement('i')
+        close.classList.add('bi-x-circle')
+        button.appendChild(document.createTextNode(tableau[i]))
+        button.appendChild(close)
+        badgeListUstencils.appendChild(button)
+      }
+    })
+
     dropdownUstencils.appendChild(listUstencils)
   })
 }
-// FILTRE INGREDIENT
-
-searchInputIngredient.addEventListener('keyup', e => filterIngredient(e.target.value))
-const filterIngredient = async value => {
-  console.log('filterIngredient')
-  const list = document.querySelector('.list-group-ingredient')
-  const items = list.querySelectorAll('li')
-
-  searchInputIngredient.addEventListener('input', function (e) {
-    const searchTerm = e.target.value.toLowerCase()
-
-    items.forEach(function (item) {
-      const text = item.textContent.toLowerCase()
-
-      if (text.includes(searchTerm)) {
-        item.style.display = 'block'
-      } else {
-        item.style.display = 'none'
-      }
-    })
-  })
-}
-// Filter Appliance
-searchInputAppliance.addEventListener('keyup', e => filterAppliance(e.target.value))
-const filterAppliance = async value => {
-  console.log('filterAppliance')
-  const list = document.querySelector('.list-group-appliance')
-  const items = list.querySelectorAll('li')
-
-  searchInputAppliance.addEventListener('input', function (e) {
-    const searchTerm = e.target.value.toLowerCase()
-
-    items.forEach(function (item) {
-      const text = item.textContent.toLowerCase()
-
-      if (text.includes(searchTerm)) {
-        item.style.display = 'block'
-      } else {
-        item.style.display = 'none'
-      }
-    })
-  })
-}
-
-// Filter ustencils
-searchInputUstencil.addEventListener('keyup', e => filterUstensils(e.target.value))
-const filterUstensils = async value => {
-  console.log('filterUstensils')
-  const list = document.querySelector('.list-group-ustencil')
-  const items = list.querySelectorAll('li')
-
-  searchInputUstencil.addEventListener('input', function (e) {
-    const searchTerm = e.target.value.toLowerCase()
-
-    items.forEach(function (item) {
-      const text = item.textContent.toLowerCase()
-
-      if (text.includes(searchTerm)) {
-        item.style.display = 'block'
-      } else {
-        item.style.display = 'none'
-      }
-    })
-  })
-}
-
-const getTag = () => {
-  const listIngredients = document.getElementById('list-group-ingredient')
-  const badgeList = document.querySelector('.badgeList')
-
-  // Initialise un tableau pour stocker les données
-  const listTag = []
-
-  // Ajoute un écouteur d'événement 'click' sur chaque élément <li> de la liste
-  listIngredients.querySelectorAll('li').forEach((element) => {
-    element.addEventListener('click', () => {
-      console.log('test')
-      const ingredient = element.textContent // Récupère le texte de l'élément cliqué
-      listTag.push(ingredient) // Ajoute les données au tableau
-      console.log(listTag)
-      const button = document.createElement('button')
-      button.classList.add('btn')
-      button.classList.add('btn-primary')
-      button.textContent = element.listTag
-      badgeList.appendChild(button)
-    })
-  })
-}
-// Récupère la liste avec l'id 'maListe'
 
 const init = async () => {
   filterRecipe()
-  getTag()
 }
 
 init()

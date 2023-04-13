@@ -1,0 +1,37 @@
+
+
+.btn {
+    margin: 0 0 0 15px;
+}
+
+.badges {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    button {
+      border-radius: 5px;
+      font-family: "Lato";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 17px;
+      color: #FFFF;
+
+    }
+    .btn-ingredient {
+        background-color: #3282f7;
+      }
+      .btn-appliance {
+        background-color: #68d9a4;
+      }
+      .btn-ustencils {
+        background-color: #ed6454;
+      }
+
+    i {
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 16px;
+    }
+  }
