@@ -1,9 +1,14 @@
 
 const axios = require('axios')
-const { mainSearch } = require('./search')
+const { mainSearch, filterByTags, isLowerCaseIncluded } = require('./search')
+const state = require('./state')
 
 export const url = 'src/scripts/data/recipes.json'
-export const getRecipes = (value = '') => axios.get(url).then(res => value.length > 2 ? mainSearch(res.data, value) : res.data)
+export const getRecipes = (value = '') => axios.get(url)
+  .then(res => {
+    const result = value.length > 2 ? mainSearch(res.data, value) : res.data
+    return filterByTags(result, state.tags)
+  })
 
 /**
  * Get Ingredients filtered
@@ -13,33 +18,36 @@ export const getRecipes = (value = '') => axios.get(url).then(res => value.lengt
  */
 export const getIngredients = (main = '', value = '') => getRecipes(main)
   .then(recipes => {
+    const filter = value === 'Ingrédients' ? '' : value
     let ingredients = []
     // Get all unique ingredients
     recipes.forEach(recipe => {
       ingredients = [...new Set([...ingredients, ...recipe.ingredients.map(item => item.ingredient)])]
     })
-    // return filter.length >= 3 ? ingredients.filter(item => isLowerCaseIncluded(item, filter)) : ingredients
-    return ingredients
+    return filter.length >= 3 ? ingredients.filter(item => isLowerCaseIncluded(item, filter)) : ingredients
+    // return ingredients
   })
 
-export const getAppliance = (main = '', value = '') => getRecipes(main)
+export const getAppliances = (main = '', value = '') => getRecipes(main)
   .then(recipes => {
+    const filter = value === 'appliance' ? '' : value
+
     let appliance = []
-    // Get all unique ingredients
+    // Get all unique appliances
     recipes.forEach(recipe => {
       appliance = [...new Set([...appliance, recipe.appliance])]
     })
-    // return filter.length >= 3 ? ingredients.filter(item => isLowerCaseIncluded(item, filter)) : ingredients
-    return appliance
+    return filter.length >= 3 ? appliance.filter(item => isLowerCaseIncluded(item, filter)) : appliance
   })
 
 export const getUstensils = (main = '', value = '') => getRecipes(main)
   .then(recipes => {
+    const filter = value === 'ustensils' ? '' : value
+
     let ustensils = []
-    // Get all unique ingredients
+    // Get all unique ustensils
     recipes.forEach(recipe => {
-      ustensils = [...new Set([...ustensils, ...recipe.ustensils])]
+      ustensils = [...new Set([...ustensils, ...recipe.ustensils.map(item => item)])]
     })
-    // return filter.length >= 3 ? ingredients.filter(item => isLowerCaseIncluded(item, filter)) : ingredients
-    return ustensils
+    return filter.length >= 3 ? ustensils.filter(item => isLowerCaseIncluded(item, filter)) : ustensils
   })
