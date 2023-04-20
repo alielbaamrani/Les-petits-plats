@@ -1,3 +1,10 @@
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .form-search-bar {
   width: 100%;
   position: relative;
@@ -33,10 +40,10 @@
 #section-filtres {
   margin-bottom: 20px;
 
-
-
   .accordion {
-    max-width: 170px;
+    max-width: 15vw;
+    padding: 0;
+    margin: 0 15px;
 
     .accordion-button-ingredients {
       color: white;
@@ -78,23 +85,22 @@
   background: #ed6454;
 }
 
-
 .accordion-body {
   position: absolute;
   color: white;
   width: 45vw;
   max-height: 40vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   border-radius: 0 0 5px 5px;
   z-index: 99;
 
   ul {
     gap: 15px;
     display: grid;
-    grid-template-columns: repeat(3 , 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    scrollbar-width: thin;
   }
   li {
     list-style: none;
   }
 }
-

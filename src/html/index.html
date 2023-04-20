@@ -47,21 +47,24 @@
           </ul>
 
         </div>
-        <div class="row align-items-start">
+        <div class="row filter">
           <div class="accordion col" id="ingredients">
-            <div class="accordion-item">
+            <div class="accordion-item accordion-item-ingredients">
               
               <h2 class="accordion-header" id="heading-ingredients">
-                <button
+                <input
+                 id="input-search-bar-ingredient"
                   class="accordion-button accordion-button-ingredients"
                   type="button"
+                  placeholder="Rechercher un ingredients"
+                  aria-label="Rechercher une ingredients"
+
                   data-bs-toggle="collapse"
                   data-bs-target="#collapse-ingredients"
                   aria-expanded="false"
                   aria-controls="collapse-ingredients"
                 >
-                  Ingredients
-                </button>
+                </input>
               </h2>
               <div
                 id="collapse-ingredients"
@@ -70,13 +73,6 @@
                 data-bs-parent="#ingredients"
               >
                 <div class="accordion-body accordion-body-ingredient">
-                  <input
-                    id="input-search-bar-ingredient"
-                    class="form-control input-search-bar input-search-bar-ingredient"
-                    type="search"
-                    placeholder="Rechercher un ingredients"
-                    aria-label="Rechercher une ingredients"
-                  />
                   <ul
                     class="list-group list-group-ingredient"
                   ></ul>
@@ -85,18 +81,20 @@
             </div>
           </div>
           <div class="accordion col" id="appareils">
-            <div class="accordion-item">
+            <div class="accordion-item accordion-item-appareils">
               <h2 class="accordion-header" id="headingTwo">
-                <button
+                <input
+                id="input-search-bar-appliance"
                   class="accordion-button accordion-button-appareils"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseTwo"
                   aria-expanded="false"
                   aria-controls="collapseOne"
+                  placeholder="Rechercher un appareils"
                 >
-                  Appareils
-                </button>
+                  
+                </input>
               </h2>
               <div
                 id="collapseTwo"
@@ -105,31 +103,27 @@
                 data-bs-parent="#appareils"
               >
                 <div class="accordion-body accordion-body-appliance">
-                  <input
-                    id="input-search-bar-appliance"
-                    class="form-control input-search-bar input-search-bar-appliance"
-                    type="search"
-                    placeholder="Rechercher un ingredients"
-                    aria-label="Rechercher une ingredients"
-                  />
+
                   <ul class="list-group list-group-appliance"></ul>
                 </div>
               </div>
             </div>
           </div>
           <div class="accordion col" id="ustensibles">
-            <div class="accordion-item">
+            <div class="accordion-item accordion-item-ustensibles">
               <h2 class="accordion-header" id="heading-ustensibles">
-                <button
+                <input
+                id="input-search-bar-ustensil"
                   class="accordion-button accordion-button-ustensibles"
                   type="button"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapse-ustensibles"
                   aria-expanded="false"
                   aria-controls="collapseOne"
+                  placeholder="Rechercher un ustensils"
+                  aria-label="Rechercher une ustensils"
                 >
-                  Ustensibles
-                </button>
+                </input>
               </h2>
               <div
                 id="collapse-ustensibles"
@@ -138,13 +132,7 @@
                 data-bs-parent="#ustensibles"
               >
                 <div class="accordion-body accordion-body-ustensil">
-                  <input
-                    id="input-search-bar-ustensil"
-                    class="form-control input-search-bar input-search-bar-ustensil"
-                    type="search"
-                    placeholder="Rechercher un ustensils"
-                    aria-label="Rechercher une ustensils"
-                  />
+
                   <ul class="list-group list-group-ustensil"></ul>
                 </div>
               </div>
