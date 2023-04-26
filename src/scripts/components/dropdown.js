@@ -1,3 +1,5 @@
+const displayIngredients = require('../pages/index')
+
 const inputIngredient = document.querySelector('.accordion-button-ingredients')
 const accordionIngredient = document.querySelector('#ingredients')
 
@@ -8,6 +10,8 @@ const inputUstensibles = document.querySelector('.accordion-button-ustensibles')
 const accordionUstensibles = document.querySelector('#ustensibles')
 
 inputIngredient.addEventListener('click', () => {
+  displayIngredients()
+
   if (inputIngredient.type === 'button') {
     accordionIngredient.style.maxWidth = '45vw'
     inputIngredient.type = 'text'

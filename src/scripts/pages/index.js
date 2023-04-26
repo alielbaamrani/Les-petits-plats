@@ -33,7 +33,9 @@ const searchInputAppliance = document.getElementById('input-search-bar-appliance
 const searchInputUstensils = document.getElementById('input-search-bar-ustensil')
 
 /// //////////////////////////////////////////////////////////////////////
-const displayIngredients = async value => {
+export const displayIngredients = async value => {
+  console.log('displayIngredient')
+
   const ingredients = await getIngredients(value, searchInputIngredient.value)
 
   const dropdownIngredients = document.querySelector('.list-group-ingredient')
@@ -60,6 +62,8 @@ const displayIngredients = async value => {
 }
 
 const displayTagsIngredients = () => {
+  console.log('displayTag')
+
   const badgeListIngredients = document.querySelector('.badgeListIngredients')
   const tableau = state.tags.ingredients
 
@@ -88,6 +92,8 @@ const displayTagsIngredients = () => {
 /// //////////////////////////////////////////////////////
 
 const displayAppliances = async value => {
+  console.log('displayAppliances')
+
   const appliances = await getAppliances(value, searchInputAppliance.value)
 
   const dropdownAppliances = document.querySelector('.list-group-appliance')
@@ -114,6 +120,8 @@ const displayAppliances = async value => {
 }
 
 const displayTagsAppliances = () => {
+  console.log('displayTagAppliance')
+
   const badgeListAppliances = document.querySelector('.badgeListAppliances')
   const tableau = state.tags.appliances
 
@@ -142,6 +150,8 @@ const displayTagsAppliances = () => {
 /// //////////////////////////////////////////////////////////////////////
 
 const displayUstensils = async value => {
+  console.log('displayUstensils')
+
   const ustensils = await getUstensils(value, searchInputUstensils.value)
 
   const dropdownUstensils = document.querySelector('.list-group-ustensil')
@@ -168,6 +178,8 @@ const displayUstensils = async value => {
 }
 
 const displayTagsUstensils = () => {
+  console.log('displayTagsUstensils')
+
   const badgeListUstensils = document.querySelector('.badgeListUstensils')
   const tableau = state.tags.ustensils
 
@@ -196,6 +208,8 @@ const displayTagsUstensils = () => {
 
 /// /////////////////////////////////////////////////////////////////////
 const filterRecipe = async value => {
+  console.log('filterRecipe')
+
   const recipes = await getRecipes(value)
   displayData(recipes)
 

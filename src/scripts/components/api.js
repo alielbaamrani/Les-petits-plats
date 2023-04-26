@@ -4,8 +4,10 @@ const { mainSearch, filterByTags, isLowerCaseIncluded } = require('./search')
 const state = require('./state')
 
 export const url = 'src/scripts/data/recipes.json'
+
 export const getRecipes = (value = '') => axios.get(url)
   .then(res => {
+    console.log('getRecipe')
     const result = value.length > 2 ? mainSearch(res.data, value) : res.data
     return filterByTags(result, state.tags)
   })
@@ -18,6 +20,7 @@ export const getRecipes = (value = '') => axios.get(url)
  */
 export const getIngredients = (main = '', value = '') => getRecipes(main)
   .then(recipes => {
+    console.log('getingred')
     const filter = value === 'Ingrédients' ? '' : value
     let ingredients = []
     // Get all unique ingredients
@@ -30,6 +33,8 @@ export const getIngredients = (main = '', value = '') => getRecipes(main)
 
 export const getAppliances = (main = '', value = '') => getRecipes(main)
   .then(recipes => {
+    console.log('Getappliance')
+
     const filter = value === 'appliance' ? '' : value
 
     let appliance = []
@@ -41,7 +46,10 @@ export const getAppliances = (main = '', value = '') => getRecipes(main)
   })
 
 export const getUstensils = (main = '', value = '') => getRecipes(main)
+
   .then(recipes => {
+    console.log('Getustensils')
+
     const filter = value === 'ustensils' ? '' : value
 
     let ustensils = []
