@@ -15,7 +15,7 @@ const displayData = async recipes => {
       row.removeChild(row.firstChild)
     }
     const recipesNone = document.createElement('p')
-    recipesNone.textContent = 'aucune recette trouvé'
+    recipesNone.textContent = 'Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.'
     row.appendChild(recipesNone)
   } else {
     // Creation des recipes Card
@@ -91,7 +91,7 @@ const displayTagsIngredients = () => {
 }
 /// //////////////////////////////////////////////////////
 
-const displayAppliances = async value => {
+export const displayAppliances = async value => {
   console.log('displayAppliances')
 
   const appliances = await getAppliances(value, searchInputAppliance.value)
@@ -149,7 +149,7 @@ const displayTagsAppliances = () => {
 }
 /// //////////////////////////////////////////////////////////////////////
 
-const displayUstensils = async value => {
+export const displayUstensils = async value => {
   console.log('displayUstensils')
 
   const ustensils = await getUstensils(value, searchInputUstensils.value)

@@ -1,4 +1,7 @@
 
+const { displayIngredients, displayAppliances, displayUstensils } = require('../pages/index')
+const searchBar = document.getElementById('input-search-bar')
+
 const inputIngredient = document.querySelector('.accordion-button-ingredients')
 const accordionIngredient = document.querySelector('#ingredients')
 
@@ -13,6 +16,7 @@ inputIngredient.addEventListener('click', () => {
     accordionIngredient.style.maxWidth = '45vw'
     inputIngredient.type = 'text'
     inputIngredient.value = ''
+    displayIngredients(searchBar.value)
   } else {
     inputIngredient.type = 'button'
     inputIngredient.value = 'ingredients'
@@ -25,6 +29,7 @@ inputAppareils.addEventListener('click', () => {
     accordionAppareils.style.maxWidth = '45vw'
     inputAppareils.type = 'text'
     inputAppareils.value = ''
+    displayAppliances(searchBar.value)
   } else {
     inputAppareils.type = 'button'
     inputAppareils.value = 'appareils'
@@ -37,6 +42,7 @@ inputUstensibles.addEventListener('click', () => {
     accordionUstensibles.style.maxWidth = '45vw'
     inputUstensibles.type = 'text'
     inputUstensibles.value = ''
+    displayUstensils(searchBar.value)
   } else {
     inputUstensibles.type = 'button'
     inputUstensibles.value = 'ustensibles'
