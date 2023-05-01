@@ -13,7 +13,7 @@ const accordionUstensibles = document.querySelector('#ustensibles')
 
 inputIngredient.addEventListener('click', () => {
   if (inputIngredient.type === 'button') {
-    accordionIngredient.style.maxWidth = '45vw'
+    accordionIngredient.style.maxWidth = '100%'
     inputIngredient.type = 'text'
     inputIngredient.value = ''
     displayIngredients(searchBar.value)
@@ -26,7 +26,7 @@ inputIngredient.addEventListener('click', () => {
 
 inputAppareils.addEventListener('click', () => {
   if (inputAppareils.type === 'button') {
-    accordionAppareils.style.maxWidth = '45vw'
+    accordionAppareils.style.maxWidth = '100%'
     inputAppareils.type = 'text'
     inputAppareils.value = ''
     displayAppliances(searchBar.value)
@@ -39,7 +39,7 @@ inputAppareils.addEventListener('click', () => {
 
 inputUstensibles.addEventListener('click', () => {
   if (inputUstensibles.type === 'button') {
-    accordionUstensibles.style.maxWidth = '45vw'
+    accordionUstensibles.style.maxWidth = '100%'
     inputUstensibles.type = 'text'
     inputUstensibles.value = ''
     displayUstensils(searchBar.value)

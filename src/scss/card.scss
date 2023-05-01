@@ -6,10 +6,15 @@
   }
 }
 
+
+.col-card {
+  padding-bottom: 30px;
+}
 .card-body {
   display: flex;
   flex-direction: column;
   height: 230px;
+  background-color: #E7E7E7;
 
   .cardBody__Title_Time {
     display: flex;
@@ -47,3 +52,5 @@
     }
   }
 }
+
+

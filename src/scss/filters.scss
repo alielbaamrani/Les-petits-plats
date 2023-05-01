@@ -1,10 +1,3 @@
-.filter {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .form-search-bar {
   width: 100%;
   position: relative;
@@ -36,15 +29,11 @@
     }
   }
 }
-
 #section-filtres {
   margin-bottom: 20px;
+  padding: 0;
 
   .accordion {
-    max-width: 15vw;
-    padding: 0;
-    margin: 0 15px;
-
     .accordion-button-ingredients {
       color: white;
       background: #3282f7;
@@ -60,6 +49,10 @@
       background: #ed6454;
     }
   }
+}
+
+#section-recettes {
+  padding: 0;
 }
 .accordion-body-ingredient {
   background: #3282f7;
@@ -93,18 +86,56 @@
   overflow-y: auto;
   border-radius: 0 0 5px 5px;
   z-index: 99;
+  margin-top: -10px;
+  overflow-y: hidden;
 
   ul {
     gap: 15px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    scrollbar-width: thin;
   }
   li {
     list-style: none;
+    cursor: pointer;
   }
 }
 
 .accordion-collapse {
   position: relative;
+}
+
+#recipesRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .accordion {
+    padding: 0;
+    max-width: 15vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .filter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 20px;
+
+  }
+
+  .accordion {
+    width: 100%;
+  }
 }
