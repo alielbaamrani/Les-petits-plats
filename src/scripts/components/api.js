@@ -1,13 +1,13 @@
 
 const axios = require('axios')
-const { mainSearch, filterByTags, isLowerCaseIncluded } = require('./search')
+const { secondSearch, filterByTags, isLowerCaseIncluded } = require('./search')
 const state = require('./state')
 
 export const url = 'src/scripts/data/recipes.json'
 
 export const getRecipes = (value = '') => axios.get(url)
   .then(res => {
-    const result = value.length > 2 ? mainSearch(res.data, value) : res.data
+    const result = value.length > 2 ? secondSearch(res.data, value) : res.data
     return filterByTags(result, state.tags)
   })
 

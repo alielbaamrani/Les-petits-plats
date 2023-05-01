@@ -1,4 +1,20 @@
-export const mainSearch = (recipes, value) => recipes.filter(el => el.name.toLowerCase().includes(value) || el.description.toLowerCase().includes(value) || el.appliance.toLowerCase().includes(value))
+// export const mainSearch = (recipes, value) => recipes.filter(el => el.name.toLowerCase().includes(value) || el.description.toLowerCase().includes(value) || el.appliance.toLowerCase().includes(value))
+
+export const secondSearch = (recipes, value) => {
+  const result = []
+  recipes.forEach((recipe, indexOfRecipe) => {
+    recipe.ingredients.some((ingredientObject) => {
+      const { ingredient } = ingredientObject
+      const ingredientsNameCorrespond = ingredient
+        .toLowerCase()
+        .includes(value.toLowerCase())
+      if (ingredientsNameCorrespond) {
+        result.push(recipe)
+      }
+    })
+  })
+  return result
+}
 
 export const isLowerCaseIncluded = (value1, value2) => value1.toLowerCase().includes(value2.toLowerCase())
 
