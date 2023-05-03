@@ -1,21 +1,27 @@
 // export const mainSearch = (recipes, value) => recipes.filter(el => el.name.toLowerCase().includes(value) || el.description.toLowerCase().includes(value) || el.appliance.toLowerCase().includes(value))
 
-export const secondSearch = (recipes, value) => {
-  const result = []
-  recipes.forEach((recipe, indexOfRecipe) => {
-    recipe.ingredients.some((ingredientObject) => {
-      const { ingredient } = ingredientObject
-      const ingredientsNameCorrespond = ingredient
-        .toLowerCase()
-        .includes(value.toLowerCase())
-      if (ingredientsNameCorrespond) {
-        result.push(recipe)
-      }
-    })
-  })
-  return result
+const isLowerCaseIncludedBis = (value1, value2) => value1.toLowerCase().indexOf(value2.toLowerCase()) > -1
+
+const isFoundBis = (array, property, value) => {
+  for (const item of array) {
+    if (isLowerCaseIncludedBis(item[property], value)) {
+      return true
+    }
+  }
+  return false
 }
 
+export const secondSearch = (recipes, value) => {
+  const result = []
+  for (const recipe of recipes) {
+    if (isLowerCaseIncludedBis(recipe.description, value) ||
+      isLowerCaseIncludedBis(recipe.name, value) ||
+      isFoundBis(recipe.ingredients, 'ingredient', value)) {
+      result.push(recipe)
+    }
+  }
+  return result
+}
 export const isLowerCaseIncluded = (value1, value2) => value1.toLowerCase().includes(value2.toLowerCase())
 
 const isRecipeIncludesEveryTagIngredient = (recipe, tags) => tags.ingredients.every(ingredient => recipe.ingredients.map(elem => elem.ingredient).includes(ingredient))
