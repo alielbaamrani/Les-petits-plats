@@ -1,8 +1,7 @@
-// export const mainSearch = (recipes, value) => recipes.filter(el => el.name.toLowerCase().includes(value) || el.description.toLowerCase().includes(value) || el.appliance.toLowerCase().includes(value))
 
 const isLowerCaseIncludedBis = (value1, value2) => value1.toLowerCase().indexOf(value2.toLowerCase()) > -1
 
-const isFoundBis = (array, property, value) => {
+const isFound = (array, property, value) => {
   for (const item of array) {
     if (isLowerCaseIncludedBis(item[property], value)) {
       return true
@@ -16,7 +15,7 @@ export const secondSearch = (recipes, value) => {
   for (const recipe of recipes) {
     if (isLowerCaseIncludedBis(recipe.description, value) ||
       isLowerCaseIncludedBis(recipe.name, value) ||
-      isFoundBis(recipe.ingredients, 'ingredient', value)) {
+      isFound(recipe.ingredients, 'ingredient', value)) {
       result.push(recipe)
     }
   }
