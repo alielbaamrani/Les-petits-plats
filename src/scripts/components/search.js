@@ -1,5 +1,6 @@
-export const mainSearch = (recipes, value) => recipes.filter(el => el.name.toLowerCase().includes(value) || el.description.toLowerCase().includes(value) || el.appliance.toLowerCase().includes(value))
+export const mainSearch = (recipes, value) => recipes.filter(el => el.name.toLowerCase().includes(value) || el.description.toLowerCase().includes(value) || isFound(el.ingredients, 'ingredient', value))
 
+const isFound = (array, property, value) => array.find(item => isLowerCaseIncluded(item[property], value))
 export const isLowerCaseIncluded = (value1, value2) => value1.toLowerCase().includes(value2.toLowerCase())
 
 const isRecipeIncludesEveryTagIngredient = (recipe, tags) => tags.ingredients.every(ingredient => recipe.ingredients.map(elem => elem.ingredient).includes(ingredient))
