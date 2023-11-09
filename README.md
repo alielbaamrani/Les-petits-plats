@@ -1,2 +1,12 @@
-# dev-js-p7
-Développeur d'application - JavaScript React - Projet 7 - Développez un algorithme de recherche en JavaScript
+# Projet Les Petits Plats - Projet 5 - OpenClassRoom
+
+## Installer Webpack
+
+en ligne de commande, à la racine du projet taper:
+`npm install`
+
+## Lancer le projet
+
+en ligne de commande, à la racine du projet taper:
+`npm run start`
+une fenêtre de votre navigateur par défaut devrait s'ouvrir, à chaque modification de votre code l'affichage se mettra à jour
