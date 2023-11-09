@@ -1,4 +1,6 @@
-# Projet Les Petits Plats - Projet 5 - OpenClassRoom
+# Les Petits Plats - Développez un algorithme de recherche en JavaScript
+
+ Projet Les Petits Plats - Projet 5 - OpenClassRoom
 
 ## Installer Webpack
 
